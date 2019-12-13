@@ -2,8 +2,8 @@ const server = require('./server.js');
 const request = require('supertest');
 
 describe('server.js', () => {
-    test('should be the testing environment', () => {
-        expect(process.env.DB_ENV).toBe('testing');
+    test('should be the development environment', () => {
+        expect(process.env.DB_ENV).toBe('development');
     });
 
     describe('GET /', () => {
@@ -21,7 +21,7 @@ describe('server.js', () => {
         // does it return the right data?
         it('should return the right object', async () => {
             const res = await request(server).get('/');
-            expect(res.body).toEqual({ api: 'up' });
+            expect(res.body).toEqual({ api: 'This is working' });
         })
     });
 });
